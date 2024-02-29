@@ -1,35 +1,299 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <application
-        android:label="call_kit_test_project"
-        android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.call_kit_test_project.App">
+
+  <!--   
+    <!-/- Dangerous/Runtime permissions  -/->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-/- Normal permissions  -/->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-/- <uses-permission android:name="android.permission.CALL_PHONE" /> -/-/>
+
+    <!-/- Bluetooth Permissions  -/->
+    <uses-permission
+        android:name="android.permission.BLUETOOTH"
+        android:maxSdkVersion="30" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_ADMIN"
+        android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+    <!-/- Needed only if your app communicates with already-paired Bluetooth devices. -/->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <!-/- Needed only if your app looks for Bluetooth devices.
+             If your app doesn't use Bluetooth scan results to derive physical
+             location information, you can strongly assert that your app
+             doesn't derive physical location. -/->
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+     -->
+    <uses-permission android:name="android.permission.INTERNET" />
+  <!--   <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <!-/- Ignore Android Studio complaining about this permission for system apps -/->
+    <uses-permission android:name="android.permission.BATTERY_STATS" />
+
+    <!-/- For auto-launching app on device boot -/->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <!-/- For NFC tags -->
+    <!-- <uses-permission android:name="android.permission.NFC" />
+
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="false" />
+
+    <uses-feature
+        android:name="android.hardware.bluetooth"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="false" />
+
+    <uses-feature
+        android:name="com.kyocera.PTTKEYAPI"
+        android:required="false" />
+    <uses-feature
+        android:name="com.kyocera.SOSKEYAPI"
+        android:required="false" />
+
+  -->   
+  <!-- <queries>
+        <intent>
+            <action android:name="android.intent.action.SENDTO" />
+            <data android:scheme="mailto" />
+        </intent>
+        <!-/- For url_launcher package -/->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="https" />
+        </intent>
+        <!-/- For url_launcher package -/->
+        <intent>
+            <action android:name="android.intent.action.DIAL" />
+            <data android:scheme="tel" />
+        </intent>
+        <!-/- For url_launcher package -/->
+        <intent>
+            <action android:name="android.intent.action.SEND" />
+            <data android:mimeType="*/*" />
+        </intent>
+    </queries> -->
+
+   <application
+   
+        android:allowBackup="false"
+        android:fullBackupContent="@xml/my_backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Instant Connect"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:node="replace">
+     <!-- android:name=".App" -->
+   <!--      <service
+            android:name=".IceService"
+            android:enabled="true"
+            android:exported="true"
+            android:foregroundServiceType="microphone"
+            android:permission="android.permission.FOREGROUND_SERVICE" />
+
+        <service
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="location"
+            android:name="com.baseflow.geolocator.GeolocatorLocationService"/>
+<!-/-        <service-/->
+<!-/-            android:name=".LocationUpdatesService"-/->
+<!-/-            android:enabled="true"-/->
+<!-/-            android:exported="true"-/->
+<!-/-            android:foregroundServiceType="location" />-->
+
         <activity
             android:name=".MainActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:exported="true"
-            android:launchMode="singleTop"
-            android:theme="@style/LaunchTheme"
-            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:theme="@style/LaunchTheme"
             android:windowSoftInputMode="adjustResize">
-            <!-- Specifies an Android theme to apply to this Activity as soon as
-                 the Android process has started. This theme is visible to the user
-                 while the Flutter UI initializes. After that, this theme continues
-                 to determine the Window background behind the Flutter UI. -->
+            <!-- Theme to apply as soon as Flutter begins rendering frames -->
             <meta-data
-              android:name="io.flutter.embedding.android.NormalTheme"
-              android:resource="@style/NormalTheme"
-              />
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                android:name="io.flutter.embedding.android.NormalTheme"
+                android:resource="@style/NormalTheme" />
+            <!-- Displays an Android View that continues showing the launch screen
+                 Drawable until Flutter paints its first frame, then this splash
+                 screen fades out. A splash screen is useful to avoid any visual
+                 gap between the end of Android's launch screen and the painting of
+                 Flutter's first frame. -->
+            <meta-data
+                android:name="io.flutter.embedding.android.SplashScreenDrawable"
+                android:resource="@drawable/launch_background" />
+
+          <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="icenterprise" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <data android:mimeType="text/plain" />
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.nfc.action.TAG_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.nfc.action.TECH_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.nfc.action.TECH_DISCOVERED"
+                android:category="android.intent.category.DEFAULT"
+                android:resource="@xml/nfc_tech_filter" />
+
         </activity>
-        <!-- Don't delete the meta-data below.
-             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
-        <meta-data
+
+
+         <receiver
+            android:name=".StartAtBootReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+        </receiver>
+
+
+
+        <receiver
+            android:name=".hwintegration.hwhandler.KyoceraBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>   <!-- PTT for Device Type INTENT, PROGKEY on DFP-2, XVLTE2 -->
+                <action android:name="com.kyocera.intent.action.PTT_BUTTON" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>  <!-- SOS for Device Type INTENT on XV-LTE-2 -->
+                <action android:name="com.kyocera.intent.action.SOS_BUTTON" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter> <!-- Camera/SOS for Device Type INTENT on DFP-2 -->
+                <action android:name="com.kyocera.intent.EXTEND_ACTION_CAMERAKEYEVENT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+      <!--      <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.file_provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <provider
+            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+            android:authorities="${applicationId}.flutter.image_provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/flutter_image_picker_file_paths" />
+        </provider>
+
+        <provider
+            android:name="dev.fluttercommunity.plus.share.ShareFileProvider"
+            android:authorities="${applicationId}.flutter.share_provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/flutter_share_file_paths" />
+        </provider>
+
+  -->      
+    <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+    <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+    <!--        <!-/- Ecom button integration -/->
+        <meta-data
+            android:name="ecom.device.key"
+            android:value="ptt;alert;multifunction" />
+
+        <!-/- Sonim PTT button -/->
+        <meta-data
+            android:name="app_key_ptt_intent"
+            android:value="com.dillonkane.ice.flutter.MainActivity" />
+        <meta-data
+            android:name="app_key_ptt_data"
+            android:value="538aefb40409be8e77752fdfe1fea1d16d3aac75ed78cdaa98b51fda14dd8f649fea6866d3ff2214b5d46ec7eaeed81f" />
+        <!-/- Sonim SOS Button -/->
+        <meta-data
+            android:name="app_key_sos_intent"
+            android:value="com.dillonkane.ice.flutter.MainActivity" />
+        <meta-data
+            android:name="app_key_sos_data"
+            android:value="538aefb40409be8e77752fdfe1fea1d1912941029b3892a09e040bef170b144e2127e40b6879e6e63e9b922911c03a03" />
+        <!-/- Sonim Yellow Button -/->
+        <meta-data
+            android:name="app_key_yellow_intent"
+            android:value="com.dillonkane.ice.flutter.MainActivity" />
+        <meta-data
+            android:name="app_key_yellow_data"
+            android:value="538aefb40409be8e77752fdfe1fea1d17b70a172b9c92c4650f7ae76b53a00680af2ea28f2de3144ea1b7ebaf7317fc7" />
+        <!-/- Sonim CSM -/->
+        <meta-data
+            android:name="com.sonim.CSM_API_KEY_META_DATA"
+            android:value="com.sonim.permission.CSM" />
+        <!-/- Sonim SPCC -/->
+        <meta-data
+            android:name="com.sonim.spccservice.ACI_TOKEN"
+            android:value="7b566d9ffb7e7adf4cf14c0aaf8aea118845e589c79d9b78de45afeaff7ae2ae6072294dfff551cdc1cc974f340159212a113e91970bed349c3de45a314471e8031b0a2ae44f4e1596f4cf9ac5e639c4188fb9d0c71283064f47fb71c51eec3e93f677fcab373acd377e33dbd24e53f7448328ed7024c26c5bed3e6c7d8e5b3e" />
+
+        <!-/- For MDM -/->
+        <meta-data
+            android:name="android.content.APP_RESTRICTIONS"
+            android:resource="@xml/app_restrictions" />-->
+
     </application>
 
-    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

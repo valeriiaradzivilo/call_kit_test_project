@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Instant Connect</string>
+    <string name="wifi_lock_name">IceFlutterWifiLock</string>
+    <string name="multicast_lock_name">IceFlutterMulticastLock</string>
+    <string name="wake_lock_name">IceFlutterWakeLock</string>
+    <string name="android_notification_channel_id">727b050a-9b5a-4a34-9040-5d0483419dce</string>
+    <string name="android_notification_service">ICE Flutter Service Notifications</string>
+    <string name="android_notification_private_call">ICE Flutter Private Call Notification</string>
+    <string name="android_notification_channel_description">Dynamic Frontline Communications</string>
+    <string name="android_notification_title">Instant Connect</string>
+    <string name="android_notification_service_is_running">Communications service is ready</string>
+    <string name="button_manually_assing">PTT button needs to be manually assigned</string>
+    // MDM app config
+    <string name="mdm_server_key_title">ICE Server Address</string>
+    <string name="mdm_server_key_description">Hostname or IP address of ICE Server. Leave blank if not managed.</string>
+    <string name="mdm_show_server_at_login_title">Show Server Address at Login</string>
+    <string name="mdm_show_server_at_login_description">If enabled, the ICE server address field is visible during login. Otherwise it is hidden when known.</string>
+    <string name="mdm_verbose_logging_title">Verbose Logging</string>
+    <string name="mdm_verbose_logging_description">Logs collected by the application will contain additional information for troubleshooting if needed.</string>
+    <string name="mdm_application_auto_launch_title">Launch App on Device Start</string>
+    <string name="mdm_application_auto_launch_description">If enabled, the ICE app will automatically start after the device boots up.</string>
+    <string name="mdm_tactical_enabled_title">Tactical Mode</string>
+    <string name="mdm_tactical_enabled_description">Enable tactical-mode features in the app. Tactical mode allows ICE Mobile and ICE Desktop users to communicate without an ICE Server.</string>
+    <string name="mdm_radio_mode_title">Radio Mode</string>
+    <string name="mdm_radio_mode_description">Only one active channel at a time.</string>
+    <string name="mdm_telephony_as_a_channel_title">Telephony as a Channel</string>
+    <string name="mdm_telephony_as_a_channel_description">Treat phone calls like PTT channels. Require that a push-to-talk button is pressed to un-mute your microphone while on a phone call.</string>
+    <string name="mdm_onscreen_ptt_button_title">On-screen PTT Button</string>
+    <string name="mdm_onscreen_ptt_button_description">When disabled, only a device button, wired or Bluetooth PTT accessory can be used to transmit on selected channels.</string>
+    <string name="mdm_share_location_title">Share Location</string>
+    <string name="mdm_share_location_description">Device location is shared with the ICE server if permission is granted by the user.</string>
+    <string name="mdm_recording_enabled_title">Instant Replay</string>
+    <string name="mdm_recording_enabled_description">Received and transmitted audio on channels are recorded locally for playback.</string>
+    <string name="mdm_emergency_alert_button_title">Emergency Alert Button</string>
+    <string name="mdm_emergency_alert_button_description">If the device/accessory is equipped with a secondary button, a short-press will answer or hangup a call and a long-press will decline a call.</string>
+    <string name="mdm_telephony_call_button_title">Telephony Call Button</string>
+    <string name="mdm_telephony_call_button_description">If the device/accessory is equipped with a secondary button, answer or hangup a call with a short-press and decline a call with a long-press.</string>
+    <string name="mdm_allow_channel_muting_title">Allow channel muting</string>
+    <string name="mdm_allow_channel_muting_description">Allows a channel to be muted by tapping on the speaker icon on the channel card.</string>
+    <string name="mdm_lock_configurations_title">Lock Configurations for User</string>
+    <string name="mdm_lock_configurations_description">If enabled, these configurations cannot be modifiable in the ICE app.</string>
+    <string name="mdm_stereo_audio_mode_title">Stereo Audio</string>
+    <string name="mdm_stereo_audio_mode_description">If enabled, the speaker mode is set to stereo allowing a channel to choose speaker.</string>
+</resources>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<restrictions xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <restriction
+        android:key="serverKey"
+        android:title="@string/mdm_server_key_title"
+        android:description="@string/mdm_server_key_description"
+        android:restrictionType="string"
+        android:defaultValue="" />
+
+    <restriction
+        android:key="showServerAtLogin"
+        android:title="@string/mdm_show_server_at_login_title"
+        android:description="@string/mdm_show_server_at_login_description"
+        android:restrictionType="bool"
+        android:defaultValue="true" />
+
+    <restriction
+        android:key="verboseLogging"
+        android:title="@string/mdm_verbose_logging_title"
+        android:description="@string/mdm_verbose_logging_description"
+        android:restrictionType="bool"
+        android:defaultValue="false" />
+
+    <restriction
+        android:key="applicationAutoLaunch"
+        android:title="@string/mdm_application_auto_launch_title"
+        android:description="@string/mdm_application_auto_launch_description"
+        android:restrictionType="bool"
+        android:defaultValue="false" />
+
+    <restriction
+        android:key="tacticalEnabled"
+        android:title="@string/mdm_tactical_enabled_title"
+        android:description="@string/mdm_tactical_enabled_description"
+        android:restrictionType="bool"
+        android:defaultValue="true" />
+
+    <restriction
+        android:key="radioMode"
+        android:title="@string/mdm_radio_mode_title"
+        android:description="@string/mdm_radio_mode_description"
+        android:restrictionType="bool"
+        android:defaultValue="false" />
+
+    <restriction
+        android:key="telephonyAsAChannel"
+        android:title="@string/mdm_telephony_as_a_channel_title"
+        android:description="@string/mdm_telephony_as_a_channel_description"
+        android:restrictionType="bool"
+        android:defaultValue="false" />
+
+    <restriction
+        android:key="onScreenPttButton"
+        android:title="@string/mdm_onscreen_ptt_button_title"
+        android:description="@string/mdm_onscreen_ptt_button_description"
+        android:restrictionType="bool"
+        android:defaultValue="true" />
+
+    <restriction
+        android:key="shareLocation"
+        android:title="@string/mdm_share_location_title"
+        android:description="@string/mdm_share_location_description"
+        android:restrictionType="bool"
+        android:defaultValue="true" />
+
+    <restriction
+        android:key="recordingEnabled"
+        android:title="@string/mdm_recording_enabled_title"
+        android:description="@string/mdm_recording_enabled_description"
+        android:restrictionType="bool"
+        android:defaultValue="true" />
+
+    <restriction
+        android:key="emergencyAlertButton"
+        android:title="@string/mdm_emergency_alert_button_title"
+        android:description="@string/mdm_emergency_alert_button_description"
+        android:restrictionType="bool"
+        android:defaultValue="true" />
+
+    <restriction
+        android:key="telephonyCallButton"
+        android:title="@string/mdm_telephony_call_button_title"
+        android:description="@string/mdm_telephony_call_button_description"
+        android:restrictionType="bool"
+        android:defaultValue="true" />
+        
+    <restriction
+        android:key="allowChannelMuting"
+        android:title="@string/mdm_allow_channel_muting_title"
+        android:description="@string/mdm_allow_channel_muting_description"
+        android:restrictionType="bool"
+        android:defaultValue="true" />
+
+    <restriction
+        android:key="lockConfigurations"
+        android:title="@string/mdm_lock_configurations_title"
+        android:description="@string/mdm_lock_configurations_description"
+        android:restrictionType="bool"
+        android:defaultValue="false" />
+    
+    <restriction
+        android:key="stereoAudio"
+        android:title="@string/mdm_stereo_audio_mode_title"
+        android:description="@string/mdm_stereo_audio_mode_description"
+        android:restrictionType="bool"
+        android:defaultValue="false" />
+
+</restrictions>

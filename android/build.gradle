@@ -6,14 +6,28 @@ buildscript {
     }
 
     dependencies {
+        classpath 'com.android.tools.build:gradle:7.1.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
+def artifactory_releaser=System.getenv('ARTIFACTORY_RELEASER')
+def artifactory_releaser_apikey=System.getenv('ARTIFACTORY_RELEASER_APIKEY')
+def artifactory_url="https://repo.dillonkane.com/artifactory/instantconnect-release"
+
 allprojects {
+    ext.kotlin_version = '1.9.20' 
     repositories {
         google()
         mavenCentral()
+
+        maven {
+            url = "${artifactory_url}"
+            credentials {
+                username = "${artifactory_releaser}"
+                password = "${artifactory_releaser_apikey}"
+            }
+        }
     }
 }
 
