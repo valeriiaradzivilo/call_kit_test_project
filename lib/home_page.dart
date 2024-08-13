@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               ElevatedButton(
                   onPressed: () async {
-                    await Future.delayed(const Duration(seconds: 5));
+                    await Future.delayed(const Duration(seconds: 3));
                     CallKitParams callKitParams = const CallKitParams(
                       id: 'b09d6ddc-6fe1-4422-9fc6-6e28c1e08134',
                       nameCaller: 'Hien Nguyen',
@@ -123,7 +123,8 @@ class _HomePageState extends State<HomePage> {
                         ringtonePath: 'system_ringtone_default',
                       ),
                     );
-                    await FlutterCallkitIncoming.showCallkitIncoming(callKitParams);
+                    // await FlutterCallkitIncoming.showCallkitIncoming(callKitParams);
+                    FlutterCallkitIncoming.startCall(callKitParams);
                   },
                   child: const Text('Press here to get a call')),
               ElevatedButton(

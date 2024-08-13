@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_callkit_incoming/flutter_callkit_incoming.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
   FlutterCallkitIncoming.requestNotificationPermission({
     "rationaleMessagePermission": "Notification permission is required, to show notification.",

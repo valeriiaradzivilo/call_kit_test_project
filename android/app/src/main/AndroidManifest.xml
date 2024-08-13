@@ -2,24 +2,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.call_kit_test_project.App">
 
-  <!--   
-    <!-/- Dangerous/Runtime permissions  -/->
-    <uses-permission android:name="android.permission.CAMERA" />
+ <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-    <!-/- Normal permissions  -/->
+    <!-- Normal permissions  -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!-/- <uses-permission android:name="android.permission.CALL_PHONE" /> -/-/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
-    <!-/- Bluetooth Permissions  -/->
+    <!-- Bluetooth Permissions  -->
     <uses-permission
         android:name="android.permission.BLUETOOTH"
         android:maxSdkVersion="30" />
@@ -27,12 +26,12 @@
         android:name="android.permission.BLUETOOTH_ADMIN"
         android:maxSdkVersion="30" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
-    <!-/- Needed only if your app communicates with already-paired Bluetooth devices. -/->
+    <!-- Needed only if your app communicates with already-paired Bluetooth devices. -->
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
-    <!-/- Needed only if your app looks for Bluetooth devices.
+    <!-- Needed only if your app looks for Bluetooth devices.
              If your app doesn't use Bluetooth scan results to derive physical
              location information, you can strongly assert that your app
-             doesn't derive physical location. -/->
+             doesn't derive physical location. -->
     <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
 
 
@@ -40,61 +39,20 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
-     -->
     <uses-permission android:name="android.permission.INTERNET" />
-  <!--   <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
-    <!-/- Ignore Android Studio complaining about this permission for system apps -/->
+    <!-- Ignore Android Studio complaining about this permission for system apps -->
     <uses-permission android:name="android.permission.BATTERY_STATS" />
 
-    <!-/- For auto-launching app on device boot -/->
+    <!-- For auto-launching app on device boot -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
-    <!-/- For NFC tags -->
-    <!-- <uses-permission android:name="android.permission.NFC" />
+    <!-- For NFC tags -->
+    <uses-permission android:name="android.permission.NFC" />
 
-    <uses-feature
-        android:name="android.hardware.nfc"
-        android:required="false" />
-
-    <uses-feature
-        android:name="android.hardware.bluetooth"
-        android:required="false" />
-    <uses-feature
-        android:name="android.hardware.bluetooth_le"
-        android:required="false" />
-
-    <uses-feature
-        android:name="com.kyocera.PTTKEYAPI"
-        android:required="false" />
-    <uses-feature
-        android:name="com.kyocera.SOSKEYAPI"
-        android:required="false" />
-
-  -->   
-  <!-- <queries>
-        <intent>
-            <action android:name="android.intent.action.SENDTO" />
-            <data android:scheme="mailto" />
-        </intent>
-        <!-/- For url_launcher package -/->
-        <intent>
-            <action android:name="android.intent.action.VIEW" />
-            <data android:scheme="https" />
-        </intent>
-        <!-/- For url_launcher package -/->
-        <intent>
-            <action android:name="android.intent.action.DIAL" />
-            <data android:scheme="tel" />
-        </intent>
-        <!-/- For url_launcher package -/->
-        <intent>
-            <action android:name="android.intent.action.SEND" />
-            <data android:mimeType="*/*" />
-        </intent>
-    </queries> -->
 
    <application
    
