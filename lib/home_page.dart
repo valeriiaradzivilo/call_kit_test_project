@@ -15,6 +15,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
 
+    // Initialize FlutterCallkitIncoming event listener
     FlutterCallkitIncoming.onEvent.listen((CallEvent? event) {
       if (event == null) return;
       switch (event.event) {
@@ -30,7 +31,7 @@ class _HomePageState extends State<HomePage> {
           break;
         case Event.actionCallDecline:
           print('actionCallDecline'); // declined an incoming call
-          break;
+          FlutterCallkitIncoming.endAllCalls();
         case Event.actionCallEnded:
           print('actionCallEnded'); // ended an incoming/outgoing call
           break;
@@ -78,67 +79,15 @@ class _HomePageState extends State<HomePage> {
               ElevatedButton(
                   onPressed: () async {
                     var uuid = Uuid();
-                    // await Future.delayed(const Duration(seconds: 3));
-                    CallKitParams callKitParams = CallKitParams(
-                      id: uuid.v4(),
-                      nameCaller: 'Hien Nguyen',
-                      appName: 'Callkit',
-                      avatar: 'https://i.pravatar.cc/100',
-                      handle: '0123456789',
-                      type: 0,
-                      textAccept: 'Accept',
-                      textDecline: 'Decline',
-                      missedCallNotification: NotificationParams(
-                        showNotification: true,
-                        isShowCallback: true,
-                        subtitle: 'Missed call',
-                        callbackText: 'Call back',
-                      ),
-                      duration: 30000,
-                      extra: <String, dynamic>{'userId': '1a2b3c4d'},
-                      headers: <String, dynamic>{'apiKey': 'Abc@123!', 'platform': 'flutter'},
-                      android: AndroidParams(
-                          isCustomNotification: true,
-                          isShowLogo: false,
-                          ringtonePath: 'system_ringtone_default',
-                          backgroundColor: '#0955fa',
-                          backgroundUrl: 'https://i.pravatar.cc/500',
-                          actionColor: '#4CAF50',
-                          textColor: '#ffffff',
-                          incomingCallNotificationChannelName: "Incoming Call",
-                          missedCallNotificationChannelName: "Missed Call",
-                          isShowCallID: false),
-                      ios: IOSParams(
-                        iconName: 'CallKitLogo',
-                        handleType: 'generic',
-                        supportsVideo: true,
-                        maximumCallGroups: 2,
-                        maximumCallsPerCallGroup: 1,
-                        audioSessionMode: 'default',
-                        audioSessionActive: true,
-                        audioSessionPreferredSampleRate: 44100.0,
-                        audioSessionPreferredIOBufferDuration: 0.005,
-                        supportsDTMF: true,
-                        supportsHolding: true,
-                        supportsGrouping: false,
-                        supportsUngrouping: false,
-                        ringtonePath: 'system_ringtone_default',
-                      ),
-                    );
-                    try {
-                      final res = await FlutterCallkitIncoming.showCallkitIncoming(callKitParams);
-
-                      print(res.toString());
-                      print("calling...");
-                    } catch (e) {
-                      print('Error: ');
-                      print(e);
-                    }
+                    await Future.delayed(const Duration(seconds: 5));
+                    await showCallkitIncoming(uuid.v1());
                   },
                   child: const Text('Press here to get a call')),
               ElevatedButton(
                   onPressed: () async {
-                    await FlutterCallkitIncoming.endAllCalls();
+                    final res = await FlutterCallkitIncoming.endAllCalls();
+                    print(res);
+                    print('Ended all calls');
                   },
                   child: const Text('End all calls'))
             ],
@@ -147,4 +96,52 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+}
+
+Future<void> showCallkitIncoming(String uuid) async {
+  final params = CallKitParams(
+    id: uuid,
+    nameCaller: 'Hien Nguyen',
+    appName: 'Callkit',
+    avatar: 'https://i.pravatar.cc/100',
+    handle: '0123456789',
+    type: 0,
+    duration: 30000,
+    textAccept: 'Accept',
+    textDecline: 'Decline',
+    missedCallNotification: const NotificationParams(
+      showNotification: true,
+      isShowCallback: true,
+      subtitle: 'Missed call',
+      callbackText: 'Call back',
+    ),
+    extra: <String, dynamic>{'userId': '1a2b3c4d'},
+    headers: <String, dynamic>{'apiKey': 'Abc@123!', 'platform': 'flutter'},
+    android: const AndroidParams(
+      isCustomNotification: true,
+      isShowLogo: false,
+      ringtonePath: 'system_ringtone_default',
+      backgroundColor: '#0955fa',
+      backgroundUrl: 'assets/test.png',
+      actionColor: '#4CAF50',
+      textColor: '#ffffff',
+    ),
+    ios: const IOSParams(
+      iconName: 'CallKitLogo',
+      handleType: '',
+      supportsVideo: true,
+      maximumCallGroups: 2,
+      maximumCallsPerCallGroup: 1,
+      audioSessionMode: 'default',
+      audioSessionActive: true,
+      audioSessionPreferredSampleRate: 44100.0,
+      audioSessionPreferredIOBufferDuration: 0.005,
+      supportsDTMF: true,
+      supportsHolding: true,
+      supportsGrouping: false,
+      supportsUngrouping: false,
+      ringtonePath: 'system_ringtone_default',
+    ),
+  );
+  await FlutterCallkitIncoming.showCallkitIncoming(params);
 }

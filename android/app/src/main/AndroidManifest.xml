@@ -63,7 +63,9 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher"
         tools:ignore="GoogleAppIndexingWarning"
-        tools:node="replace">
+        tools:replace="android:allowBackup"
+        tools:node="merge"
+        >
      <!-- android:name=".App" -->
    <!--      <service
             android:name=".IceService"
