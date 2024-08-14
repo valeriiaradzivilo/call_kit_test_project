@@ -1,15 +1,14 @@
 import 'package:call_kit_test_project/home_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_callkit_incoming/flutter_callkit_incoming.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
-  FlutterCallkitIncoming.requestNotificationPermission({
-    "rationaleMessagePermission": "Notification permission is required, to show notification.",
-    "postNotificationMessageRequired":
-        "Notification permission is required, Please allow notification permission from setting."
-  });
+  // FlutterCallkitIncoming.requestNotificationPermission({
+  //   "rationaleMessagePermission": "Notification permission is required, to show notification.",
+  //   "postNotificationMessageRequired":
+  //       "Notification permission is required, Please allow notification permission from setting."
+  // });
 }
 
 class MyApp extends StatelessWidget {

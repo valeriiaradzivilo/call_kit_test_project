@@ -59,9 +59,9 @@
         android:allowBackup="false"
         android:fullBackupContent="@xml/my_backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="Instant Connect"
+        android:label="Callkit app"
         android:requestLegacyExternalStorage="true"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher"
         tools:ignore="GoogleAppIndexingWarning"
         tools:node="replace">
      <!-- android:name=".App" -->

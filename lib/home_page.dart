@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_callkit_incoming/entities/entities.dart';
 import 'package:flutter_callkit_incoming/flutter_callkit_incoming.dart';
+import 'package:uuid/uuid.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -76,9 +77,10 @@ class _HomePageState extends State<HomePage> {
             children: [
               ElevatedButton(
                   onPressed: () async {
-                    await Future.delayed(const Duration(seconds: 3));
+                    var uuid = Uuid();
+                    // await Future.delayed(const Duration(seconds: 3));
                     CallKitParams callKitParams = CallKitParams(
-                      id: DateTime.now().millisecondsSinceEpoch.toString(),
+                      id: uuid.v4(),
                       nameCaller: 'Hien Nguyen',
                       appName: 'Callkit',
                       avatar: 'https://i.pravatar.cc/100',
@@ -124,11 +126,14 @@ class _HomePageState extends State<HomePage> {
                       ),
                     );
                     try {
-                      await FlutterCallkitIncoming.showCallkitIncoming(callKitParams);
+                      final res = await FlutterCallkitIncoming.showCallkitIncoming(callKitParams);
+
+                      print(res.toString());
+                      print("calling...");
                     } catch (e) {
+                      print('Error: ');
                       print(e);
                     }
-                    print("calling...");
                   },
                   child: const Text('Press here to get a call')),
               ElevatedButton(
